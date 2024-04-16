@@ -11,14 +11,23 @@ help:
 dev/build:
 	docker build -t dev_image ./docker/dev --load
 
+## Restart local dev container
+dev/restart:
+	@make dev/stop
+	@make dev/start
+
 ## Initialize and setup the local dev environment
 dev/setup:
 	@make dev/build
-	docker run -d --restart always --name dev_sak -v $(PWD):/app -w /app --entrypoint "" dev_image tail -f /dev/null
+	@make dev/start
 
 ## Shell into the running local dev container (see `dev/setup`)
 dev/sh:
 	docker exec -it dev_sak /bin/bash --login
+
+## Start local dev container
+dev/start:
+	docker run -d --restart always --name dev_sak --env-file .env -v $(PWD):/app -w /app --entrypoint "" dev_image tail -f /dev/null
 
 ## Stop and remove the running local dev container
 dev/stop:

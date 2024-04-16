@@ -1,3 +1,6 @@
+ARG TERRAFORM_VERSION=1.8.0
+FROM hashicorp/terraform:${TERRAFORM_VERSION} as terraform-stage
+
 FROM debian:bookworm-slim
 
 RUN apt-get update && \
@@ -17,6 +20,8 @@ COPY bashrc.d /home/appuser/.bashrc.d
 RUN chmod +x /home/appuser/.bashrc.d/*.bashrc
 
 RUN chown -R appuser:appgroup /app
+
+COPY --from=terraform-stage /bin/terraform /usr/local/bin/terraform
 
 USER appuser
 
