@@ -12,8 +12,21 @@ available (a.k.a. `dev_sak`) and needs to be running to have the playground read
 
 - Docker version 25+ (older versions may work YMMV)
 - Linux or macOS operating system. (probably Windows 🤷)
+- A [Terraform Cloud](https://app.terraform.io/) account
 
 ## Installation and Setup
+
+### Setting up Terraform Cloud
+
+Log in to your Terraform Cloud account
+to [generate an API token](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/api-tokens).
+Run the following command to configure your local Terraform setup:
+
+ ```bash
+ make tfcloud/config
+ ```
+
+### Setting up the local development environment
 
 1. Build and set up the local dev container:
 
@@ -31,3 +44,4 @@ available (a.k.a. `dev_sak`) and needs to be running to have the playground read
 
 > [!TIP]
 > Run `make help` to see all available targets.
+

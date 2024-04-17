@@ -1,0 +1,19 @@
+version: '3.8'
+
+networks:
+  default:
+
+services:
+  dev_sak:
+    image: dev_image
+    build: ./docker/dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - $HOME/.terraformrc:/home/appuser/.terraformrc:ro
+      - $HOME/.terraform.d:/home/appuser/.terraform.d:rw
+    command: tail -f /dev/null
+    entrypoint: ''
+    env_file:
+      - .env
+    restart: always
