@@ -1,1 +1,1 @@
-export PS1="\u@dev:\w\$ "
+export PS1="\u@dev_sak:\w\$ "

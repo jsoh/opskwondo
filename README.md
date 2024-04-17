@@ -28,6 +28,11 @@ Run the following command to configure your local Terraform setup:
 
 ### Setting up the local development environment
 
+In order to have a consistent development environment and experience across all devices, a local development container
+is provided. 
+
+```bash
+
 1. Build and set up the local dev container:
 
     ```bash

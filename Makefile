@@ -28,6 +28,6 @@ dev/start:
 dev/stop:
 	docker compose down
 
-## Terraform Cloud: Initialize configuration
+## Terraform Cloud: Initialize or update configuration
 tfcloud/config:
 	@./bin/terraformrc_config.sh

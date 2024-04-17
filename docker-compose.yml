@@ -6,6 +6,7 @@ networks:
 services:
   dev_sak:
     image: dev_image
+    container_name: dev_sak
     build: ./docker/dev
     working_dir: /app
     volumes:
@@ -16,4 +17,6 @@ services:
     entrypoint: ''
     env_file:
       - .env
+    environment:
+      TF_VAR_hcloud_token: ${HCLOUD_API_TOKEN}
     restart: always
