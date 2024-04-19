@@ -6,13 +6,13 @@ terraform {
     organization = "grapefruit-league"
 
     workspaces {
-      prefix = "hetzner-"
+      name = "hetzner-demo"
     }
   }
 
   required_providers {
     hcloud = {
-      source = "hetznercloud/hcloud"
+      source  = "hetznercloud/hcloud"
       version = "~> 1.45"
     }
   }
