@@ -7,6 +7,13 @@ RUN apt-get update && \
     apt-get install -y bash bash-completion curl procps unzip wget && \
     rm -rf /var/lib/apt/lists/*
 
+RUN /bin/bash -c 'set -e && \
+    ARCH=`uname -m` && \
+    echo "$ARCH" && \
+    curl https://awscli.amazonaws.com/awscli-exe-linux-$ARCH.zip -o awscliv2.zip && \
+    unzip awscliv2.zip && \
+    ./aws/install'
+
 WORKDIR /app
 
 COPY entrypoint.sh /entrypoint.sh

@@ -11,6 +11,7 @@ services:
     working_dir: /app
     volumes:
       - .:/app
+      - $HOME/.config/.aws:/home/appuser/.aws:rw
       - $HOME/.terraformrc:/home/appuser/.terraformrc:ro
       - $HOME/.terraform.d:/home/appuser/.terraform.d:rw
     command: tail -f /dev/null
