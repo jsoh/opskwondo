@@ -19,5 +19,9 @@ services:
     env_file:
       - .env
     environment:
+      TF_VAR_allow_ip: ${ALLOW_IP}
+      TF_VAR_cloudflare_api_token: ${CLOUDFLARE_API_TOKEN}
+      TF_VAR_cloudflare_zone_id: ${CLOUDFLARE_ZONE_ID}
+      TF_VAR_cloudflare_zone_name: ${CLOUDFLARE_ZONE_NAME}
       TF_VAR_hcloud_token: ${HCLOUD_API_TOKEN}
     restart: always
